@@ -2,8 +2,8 @@ import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.Doclet;
 import com.sun.javadoc.FieldDoc;
 import com.sun.javadoc.RootDoc;
-import util.bussiness.DocContentUtil;
-import util.bussiness.MdFileUtil;
+import util.extend.DocContentUtil;
+import util.extend.MdFileUtil;
 
 public class EnumerationHandle extends Doclet {
 

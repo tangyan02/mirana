@@ -2,8 +2,9 @@ import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.Doclet;
 import com.sun.javadoc.FieldDoc;
 import com.sun.javadoc.RootDoc;
-import util.bussiness.DocContentUtil;
-import util.bussiness.MdFileUtil;
+import util.extend.DocContentUtil;
+import util.extend.MdFileUtil;
+import util.extend.NoteUtil;
 
 public class EntityHandle extends Doclet {
 
@@ -14,7 +15,9 @@ public class EntityHandle extends Doclet {
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
             content += DocContentUtil.getEntityTableTitle();
             for (FieldDoc fieldDoc : classDoc.fields(false)) {
-                content += DocContentUtil.getTableRow(fieldDoc.name(), fieldDoc.type().typeName(), fieldDoc.getRawCommentText(), "");
+                String type = NoteUtil.getType(fieldDoc);
+                String remark = NoteUtil.getRemark(fieldDoc);
+                content += DocContentUtil.getTableRow(fieldDoc.name(), type, fieldDoc.commentText(), remark);
             }
         }
         MdFileUtil.writeEntity(content);

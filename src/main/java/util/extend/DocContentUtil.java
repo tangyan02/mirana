@@ -1,4 +1,4 @@
-package util.bussiness;
+package util.extend;
 
 import util.base.MdContentUtil;
 

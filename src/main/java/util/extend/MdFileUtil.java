@@ -1,4 +1,4 @@
-package util.bussiness;
+package util.extend;
 
 import util.base.FileUtil;
 
@@ -7,25 +7,25 @@ import java.io.IOException;
 public class MdFileUtil {
     static public void writeEntity(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/entity.md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/Entity.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Entity写入失败");
         }
         System.out.println("实体Md写入成功");
     }
 
-    static public void writeInterface(String content) {
+    static public void writeInterface(String content, String serviceName) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/interface.md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/" + serviceName + ".md", content);
         } catch (IOException e) {
             throw new RuntimeException("Interface写入失败");
         }
-        System.out.println("接口Md写入成功");
+        System.out.println(serviceName + "写入成功");
     }
 
     static public void writeEnumeration(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/enumeration.md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/Enumeration.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Enumeration写入失败");
         }
