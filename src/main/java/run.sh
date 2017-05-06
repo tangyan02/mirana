@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-javadoc -doclet EntityHandle -docletpath /Users/Agent/Projects/mirana/target/classes source/entity/*.java
+classPath="/Users/Agent/Projects/mirana/target/classes"
+entityPath="source/entity/*.java"
+enumerationPath="source/enumeration/*.java"
+interfacePath="source/interfaces/*.java"
 
-javadoc -doclet EnumerationHandle -docletpath /Users/Agent/Projects/mirana/target/classes source/enumeration/*.java
+javadoc -doclet EntityHandle -docletpath ${classPath} ${entityPath}
 
-javadoc -doclet InterfaceHandle -docletpath /Users/Agent/Projects/mirana/target/classes source/interfaces/*.java
+javadoc -doclet EnumerationHandle -docletpath ${classPath} ${enumerationPath}
+
+javadoc -doclet InterfaceHandle -docletpath ${classPath} ${interfacePath}
