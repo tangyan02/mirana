@@ -4,26 +4,14 @@ classPath="../../../target/classes"
 mdOutputPath="../../../target/mdFiles"
 
 entityPath="
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/application/Application.java
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/application/UpdateApplication.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/Config.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/EnumConfig.java
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/facilitator/FacilitatorResult.java
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/facilitator/Facilitator.java
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/facilitator/ApplicationMelodyView.java
+source/entity/*.java
 "
 enumerationPath="
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/AppGroundingState.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/AppLabel.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/AppType.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/PlatformType.java
-/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/AppState.java
-
+source/enumeration/*.java
 "
 
 interfacePath="
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/service/ApplicationApIService.java
-/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/service/FacilitatorApiService.java
+source/interfaces/*.java
 "
 
 rm -rf ${mdOutputPath}
