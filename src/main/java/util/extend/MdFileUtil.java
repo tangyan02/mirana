@@ -7,7 +7,7 @@ import java.io.IOException;
 public class MdFileUtil {
     static public void writeEntity(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/Entity.md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/", "Entity.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Entity写入失败");
         }
@@ -16,7 +16,7 @@ public class MdFileUtil {
 
     static public void writeInterface(String content, String serviceName) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/" + serviceName + ".md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/interface/", serviceName + ".md", content);
         } catch (IOException e) {
             throw new RuntimeException("Interface写入失败");
         }
@@ -25,7 +25,7 @@ public class MdFileUtil {
 
     static public void writeEnumeration(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile(), "../mdFiles/Enumeration.md", content);
+            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/", "Enumeration.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Enumeration写入失败");
         }

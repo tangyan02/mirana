@@ -5,22 +5,19 @@ import util.base.MdContentUtil;
 public class DocContentUtil extends MdContentUtil {
 
     public static String getMethodTableTitle() {
-        return String.format("%s\n%s%s",
-                getTitleRow(5, "参数列表"),
+        return String.format("%s%s",
                 getTableRow("名称", "类型", "描述", "备注"),
                 getTableLineRow(4));
     }
 
     public static String getEntityTableTitle() {
-        return String.format("%s\n%s%s",
-                getTitleRow(5, "属性列表"),
+        return String.format("%s%s",
                 getTableRow("名称", "类型", "描述", "备注"),
                 getTableLineRow(4));
     }
 
     public static String getEnumerationTableTitle() {
-        return String.format("%s\n%s%s",
-                getTitleRow(5, "枚举详情"),
+        return String.format("%s%s",
                 getTableRow("名称", "描述"),
                 getTableLineRow(2));
     }
@@ -36,6 +33,6 @@ public class DocContentUtil extends MdContentUtil {
                 getJavaCode(String.format("%s %s(%s)",
                         returnType,
                         name.trim(),
-                        String.join(",", parameters))));
+                        String.join(", ", parameters))));
     }
 }

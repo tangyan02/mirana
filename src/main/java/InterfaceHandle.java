@@ -22,7 +22,7 @@ public class InterfaceHandle extends Doclet {
                         parameterNames[i] = parameter.name();
                         ParamTag paramTag = methodDoc.paramTags()[i];
                         String type = NoteUtil.getParamType(methodDoc, parameter);
-                        contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment());
+                        contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment(), "");
                     }
                 }
 
@@ -30,7 +30,7 @@ public class InterfaceHandle extends Doclet {
                 content += DocContentUtil.getMethodTitle(returnTypeName, methodDoc.name(), parameterNames, methodDoc.commentText());
                 content += contentParamTable;
             }
-            MdFileUtil.writeInterface(content,classDoc.typeName());
+            MdFileUtil.writeInterface(content, classDoc.typeName());
         }
         return true;
     }

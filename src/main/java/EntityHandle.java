@@ -10,7 +10,6 @@ public class EntityHandle extends Doclet {
 
     public static boolean start(RootDoc root) {
         String content = "";
-        content += DocContentUtil.getLine();
         for (ClassDoc classDoc : root.classes()) {
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
             content += DocContentUtil.getEntityTableTitle();
