@@ -11,20 +11,10 @@ public class InterfaceHandle extends Doclet {
             content += DocContentUtil.getLine();
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
             for (MethodDoc methodDoc : classDoc.methods(false)) {
-                if (Switch.story) {
-                    if (methodDoc.tags("story").length == 0) {
-                        continue;
-                    }
-                    boolean found = false;
-                    for (Tag story : methodDoc.tags("story")) {
-                        if (story.text().equals(Switch.storyName)) {
-                            found = true;
-                        }
-                    }
-                    if (!found) {
-                        continue;
-                    }
+                if (!methodNeed(classDoc, methodDoc)) {
+                    continue;
                 }
+
                 String[] parameterNames = new String[methodDoc.paramTags().length];
 
                 String contentParamTable = "";
@@ -44,6 +34,21 @@ public class InterfaceHandle extends Doclet {
                 content += contentParamTable;
             }
             MdFileUtil.writeInterface(content, classDoc.typeName());
+        }
+        return true;
+    }
+
+    private static boolean methodNeed(ClassDoc classDoc, MethodDoc methodDoc) {
+        for (String service : Config.serviceList) {
+            if (service.equals(classDoc.name())) {
+                boolean contains = false;
+                for (String method : Config.methodWhiteList) {
+                    if (method.equals(methodDoc.name())) {
+                        contains = true;
+                    }
+                }
+                return contains;
+            }
         }
         return true;
     }
