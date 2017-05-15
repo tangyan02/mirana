@@ -11,13 +11,14 @@ public class InterfaceHandle extends Doclet {
             content += DocContentUtil.getLine();
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
             for (MethodDoc methodDoc : classDoc.methods(false)) {
+                if (methodDoc.tags("story").length == 0)
+                    continue;
                 String[] parameterNames = new String[methodDoc.paramTags().length];
 
                 String contentParamTable = "";
                 if (methodDoc.paramTags().length > 0) {
                     contentParamTable += DocContentUtil.getMethodTableTitle();
                     for (int i = 0; i < methodDoc.paramTags().length; i++) {
-
                         Parameter parameter = methodDoc.parameters()[i];
                         parameterNames[i] = parameter.name();
                         ParamTag paramTag = methodDoc.paramTags()[i];
