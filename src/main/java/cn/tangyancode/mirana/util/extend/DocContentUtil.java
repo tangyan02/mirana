@@ -1,6 +1,6 @@
-package util.extend;
+package cn.tangyancode.mirana.util.extend;
 
-import util.base.MdContentUtil;
+import cn.tangyancode.mirana.util.base.MdContentUtil;
 
 public class DocContentUtil extends MdContentUtil {
 

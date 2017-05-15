@@ -1,10 +1,12 @@
+package cn.tangyancode.mirana;
+
 public class Config {
 
     public static String[] entityPath = {
             "/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/application/Application.java",
             "/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/application/UpdateApplication.java",
             "/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/QueryCondition.java",
-            "/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/Config.java",
+            "/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/cn.tangyancode.mirana.Config.java",
             "/Users/Agent/Projects/napos-openapi/buttonwood-service-descriptor/src/main/java/me/ele/napos/buttonwood/service/descriptor/struct/application/EnumConfig.java",
             "/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/facilitator/FacilitatorResult.java",
             "/Users/Agent/Projects/napos-openapi/buttonwood-api-descriptor/src/main/java/me/ele/napos/buttonwood/api/descriptor/struct/facilitator/Facilitator.java",
@@ -45,7 +47,7 @@ public class Config {
     /**
      * 系统配置，请勿修改
      */
-    public static String classPath = "../../../target/classes";
+    public static String classPath = "../../../../../../target/classes";
 
     /**
      * 系统配置，请勿修改

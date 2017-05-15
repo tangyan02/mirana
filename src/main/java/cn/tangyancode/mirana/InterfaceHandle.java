@@ -1,7 +1,9 @@
+package cn.tangyancode.mirana;
+
+import cn.tangyancode.mirana.util.extend.DocContentUtil;
+import cn.tangyancode.mirana.util.extend.MdFileUtil;
+import cn.tangyancode.mirana.util.extend.NoteUtil;
 import com.sun.javadoc.*;
-import util.extend.DocContentUtil;
-import util.extend.MdFileUtil;
-import util.extend.NoteUtil;
 
 public class InterfaceHandle extends Doclet {
 

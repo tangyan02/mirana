@@ -1,5 +1,7 @@
-import util.Global;
-import util.base.FileUtil;
+package cn.tangyancode.mirana;
+
+import cn.tangyancode.mirana.util.base.FileUtil;
+import cn.tangyancode.mirana.util.base.Global;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package util;
+package cn.tangyancode.mirana.util.base;
 
 public class Global {
 
