@@ -48,7 +48,7 @@ interface AnimalService {
     /**
     * 获取名称列表
     *
-    * @returnType names:List<String>
+    * @returnType List<String>
     **/
     List<String> getNameList();
 }
