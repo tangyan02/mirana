@@ -53,5 +53,3 @@ interface AnimalService {
     List<String> getNameList();
 }
 ```
-
-- @story 迭代版本，在story开关开启后。将只生成匹配的story的接口
