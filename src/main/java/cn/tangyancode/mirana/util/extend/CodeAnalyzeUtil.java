@@ -19,8 +19,6 @@ public class CodeAnalyzeUtil {
 
     private Map<String, String> methodReturnTypeMap = new HashMap<>();
 
-    private static final String methodRegex = "(private)? (?<type>\\w+|\\w+<[<>\\w ]+>) (?<name>\\w+);";
-
     public void initEntity(String className) {
         try {
             entityTypeMap.clear();
@@ -46,13 +44,11 @@ public class CodeAnalyzeUtil {
             BufferedReader reader = new BufferedReader(new FileReader(getFile(className, Config.interfacePath)));
             String line;
             while ((line = reader.readLine()) != null) {
-
                 //去除Annotation
                 String annotation;
                 while ((annotation = getAnnotation(line)) != null) {
                     line = line.replace(annotation, "");
                 }
-
                 //抓取returnType,methodName,params
                 String methodRegex = "(?<returnType>\\w+|\\w+<[<>\\w ,]+>) (?<methodName>\\w+)\\((?<params>.*)\\)( +throws +\\w+)?;";
                 Pattern pattern = Pattern.compile(methodRegex);
