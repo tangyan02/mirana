@@ -5,8 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileUtil {
+
     public static void write(String path, String name, String text) throws IOException {
-        System.out.println(path + " " + name);
         File file = new File(path, name);
         if (!file.exists()) {
             createPath(file.getParentFile());
@@ -51,4 +51,5 @@ public class FileUtil {
         // 目录此时为空，可以删除
         return dir.delete();
     }
+
 }

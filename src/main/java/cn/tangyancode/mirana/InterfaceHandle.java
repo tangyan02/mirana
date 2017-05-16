@@ -1,14 +1,16 @@
 package cn.tangyancode.mirana;
 
+import cn.tangyancode.mirana.util.extend.CodeAnalyzeUtil;
 import cn.tangyancode.mirana.util.extend.DocContentUtil;
 import cn.tangyancode.mirana.util.extend.MdFileUtil;
-import cn.tangyancode.mirana.util.extend.NoteUtil;
 import com.sun.javadoc.*;
 
 public class InterfaceHandle extends Doclet {
 
     public static boolean start(RootDoc root) {
         for (ClassDoc classDoc : root.classes()) {
+            CodeAnalyzeUtil codeAnalyzeUtil = new CodeAnalyzeUtil();
+            codeAnalyzeUtil.initMethod(classDoc.name());
             String content = "";
             content += DocContentUtil.getLine();
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
@@ -26,12 +28,12 @@ public class InterfaceHandle extends Doclet {
                         Parameter parameter = methodDoc.parameters()[i];
                         parameterNames[i] = parameter.name();
                         ParamTag paramTag = methodDoc.paramTags()[i];
-                        String type = NoteUtil.getParamType(methodDoc, parameter);
+                        String type = codeAnalyzeUtil.getMethodParamType(methodDoc.name(),parameter.name());
                         contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment(), "");
                     }
                 }
 
-                String returnTypeName = NoteUtil.getReturnType(methodDoc);
+                String returnTypeName = codeAnalyzeUtil.getMethodReturnType(methodDoc.name());
                 content += DocContentUtil.getMethodTitle(returnTypeName, methodDoc.name(), parameterNames, methodDoc.commentText());
                 content += contentParamTable;
             }
