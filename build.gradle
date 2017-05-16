@@ -1,20 +1,31 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'application'
 
 group = 'cn.tangyancode'
 version = '1.0-SNAPSHOT'
 
-description = """"""
+description = ""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+mainClassName = 'mirana.Main'
+
 repositories {
-     maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "http://repo.maven.apache.org/maven2" }
 }
+
 dependencies {
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.4.4'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.4.4'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.4.4'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.4.4'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.4'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.4.4'
     compile files("${System.properties['java.home']}/../lib/tools.jar")
+}
+
+run {
+    File configFile = file('config.json')
+    configFile = file(configFile.absolutePath)
+    List<String> lines = configFile.readLines()
+    args lines
 }
