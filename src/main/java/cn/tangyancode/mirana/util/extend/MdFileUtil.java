@@ -1,13 +1,14 @@
-package util.extend;
+package cn.tangyancode.mirana.util.extend;
 
-import util.base.FileUtil;
+import cn.tangyancode.mirana.Config;
+import cn.tangyancode.mirana.util.base.FileUtil;
 
 import java.io.IOException;
 
 public class MdFileUtil {
     static public void writeEntity(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/", "Entity.md", content);
+            FileUtil.write(Config.mdOutputPath, "Entity.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Entity写入失败");
         }
@@ -16,7 +17,7 @@ public class MdFileUtil {
 
     static public void writeInterface(String content, String serviceName) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/interface/", serviceName + ".md", content);
+            FileUtil.write(Config.mdOutputPath + "/interface/", serviceName + ".md", content);
         } catch (IOException e) {
             throw new RuntimeException("Interface写入失败");
         }
@@ -25,7 +26,7 @@ public class MdFileUtil {
 
     static public void writeEnumeration(String content) {
         try {
-            FileUtil.write(MdFileUtil.class.getResource("/").getFile() + "../mdFiles/", "Enumeration.md", content);
+            FileUtil.write(Config.mdOutputPath, "Enumeration.md", content);
         } catch (IOException e) {
             throw new RuntimeException("Enumeration写入失败");
         }

@@ -1,4 +1,4 @@
-package util.base;
+package cn.tangyancode.mirana.util.base;
 
 import com.sun.javadoc.FieldDoc;
 import com.sun.javadoc.MethodDoc;

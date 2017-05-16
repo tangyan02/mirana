@@ -1,4 +1,4 @@
-package util.base;
+package cn.tangyancode.mirana.util.base;
 
 public class MdContentUtil {
 
