@@ -1,2 +1,4 @@
 target
-cn.tangyancode.mirana.source
+mirana.source
+.gradle
+build
