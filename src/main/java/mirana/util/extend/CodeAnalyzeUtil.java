@@ -30,7 +30,11 @@ public class CodeAnalyzeUtil {
                 Matcher matcher = pattern.matcher(line);
                 boolean result = matcher.find();
                 if (result) {
-                    entityTypeMap.put(matcher.group("name"), matcher.group("type").replace("<", "\\<").replace(">", "\\>"));
+                    String type = matcher.group("type").replace("<", "\\<").replace(">", "\\>");
+                    if (type.equals("return")) {
+                        continue;
+                    }
+                    entityTypeMap.put(matcher.group("name"), type);
                 }
             }
         } catch (IOException e) {
