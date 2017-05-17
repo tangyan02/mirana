@@ -21,6 +21,8 @@ public class Main {
         Config.entityPath = convertToArray(configs.get("entityPath"));
         Config.enumerationPath = convertToArray(configs.get("enumerationPath"));
         Config.interfacePath = convertToArray(configs.get("interfacePath"));
+        Config.serviceList = convertToArray(configs.get("serviceList"));
+        Config.methodWhiteList = convertToArray(configs.get("methodWhiteList"));
 
         FileUtil.deleteFiles(new File(Config.mdOutputPath));
 
