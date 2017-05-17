@@ -7,10 +7,13 @@
     "src/main/java/mirana/demo/enumeration/Color.java"
   ],
   "interfacePath": [
-    "src/main/java/mirana/demo/interfaces/CatService.java"
+    "src/main/java/mirana/demo/interfaces/CatService.java",
+    "src/main/java/mirana/demo/interfaces/DogService.java"
   ],
   "serviceList": [
+    "DogService"
   ],
   "methodWhiteList": [
+    "getColor"
   ]
 }

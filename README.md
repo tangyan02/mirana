@@ -16,6 +16,8 @@ mirana是一个基于JavaDoc，根据代码注释生成md格式文档的软件�
 
 ## 选择性的生成方法
 
+有的时候，我们需要在一个interface中，选择性的生成method，可以通过配置config.json来实现。在serviceList中填写接口名，methodWhiteList中填写方法名。此时将仅对methodWhiteList的方法进行文档生成。
+
 ## 辅助注释标签
 
 - @remark 作用于实体的属性上，填写的内容会在实体md文件的备注栏中展示。
