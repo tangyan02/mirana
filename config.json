@@ -1,9 +1,12 @@
 {
   "entityPath": [
+    "src/main/java/mirana/demo/entity/Cat.java"
   ],
   "enumerationPath": [
+    "src/main/java/mirana/demo/enumeration/Skill.java",
+    "src/main/java/mirana/demo/enumeration/Color.java"
   ],
   "interfacePath": [
-    "/Users/Agent/Projects/napos-openapi/nirvana-api-descriptor/src/main/java/me/ele/napos/open/api/descriptor/service/OrderService.java"
+    "src/main/java/mirana/demo/interfaces/CatService.java"
   ]
 }
