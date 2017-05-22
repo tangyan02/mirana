@@ -6,8 +6,8 @@ public class DocContentUtil extends MdContentUtil {
 
     public static String getMethodTableTitle() {
         return String.format("%s%s",
-                getTableRow("名称", "类型", "描述", "备注"),
-                getTableLineRow(4));
+                getTableRow("名称", "类型", "描述"),
+                getTableLineRow(3));
     }
 
     public static String getEntityTableTitle() {

@@ -14,7 +14,7 @@ public interface DogService {
     /**
      * 获取狗狗颜色
      *
-     * @param dogId
+     * @param dogId 狗狗Id
      */
     Color getColor(int dogId);
 }

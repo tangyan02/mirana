@@ -29,7 +29,7 @@ public class InterfaceHandle extends Doclet {
                         parameterNames[i] = parameter.name();
                         ParamTag paramTag = methodDoc.paramTags()[i];
                         String type = codeAnalyzeUtil.getMethodParamType(methodDoc.name(),parameter.name());
-                        contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment(), "");
+                        contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment());
                     }
                 }
 
