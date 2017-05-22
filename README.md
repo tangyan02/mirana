@@ -23,14 +23,14 @@ mirana是一个基于JavaDoc，根据代码注释生成md格式文档的软件�
 - @remark 作用于实体的属性上，填写的内容会在实体md文件的备注栏中展示。
 
 ```java
-public interface DogService {
+public class Cat {
+
     /**
-     * 获取狗狗颜色
+     * 标签
      *
-     * @param dogId 狗狗Id
-     * @remark 颜色有可能为空
+     * @remark 标签数量不会超过3个
      */
-    Color getColor(int dogId);
+    private List<String> tags;
 }
 ```
 
