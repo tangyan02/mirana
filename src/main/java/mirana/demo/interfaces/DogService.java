@@ -15,6 +15,7 @@ public interface DogService {
      * 获取狗狗颜色
      *
      * @param dogId 狗狗Id
+     * @remark 颜色有可能为空
      */
     Color getColor(int dogId);
 }
