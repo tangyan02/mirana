@@ -55,8 +55,9 @@ public class Main {
     }
 
     private static void searchFile(File file, Executor runnable) {
-        if (file == null)
+        if (file == null) {
             return;
+        }
         if (file.list() == null) {
             return;
         }
