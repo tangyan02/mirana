@@ -57,6 +57,9 @@ public class Main {
     private static void searchFile(File file, Executor runnable) {
         if (file == null)
             return;
+        if (file.list() == null) {
+            return;
+        }
         if (file.list().length > 0) {
             for (String name : file.list()) {
                 System.out.println(name);
