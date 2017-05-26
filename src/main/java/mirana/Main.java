@@ -31,7 +31,6 @@ public class Main {
         }
 
         Thread.sleep(5000);
-        Data.classSet.forEach(name -> System.out.println(name));
 
         while (true) {
             String set = objectMapper.writeValueAsString(Data.newClassSet);
@@ -59,13 +58,14 @@ public class Main {
             return;
         }
         if (file.list() == null) {
+            runnable.run(file.getPath());
             return;
         }
         if (file.list().length > 0) {
             for (String name : file.list()) {
-                System.out.println(name);
                 String path = file.getPath() + "/" + name;
-                runnable.run(path);
+                File newFile = new File(path);
+                searchFile(newFile, runnable);
             }
         }
     }

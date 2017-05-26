@@ -1,4 +1,6 @@
-package mirana.demo.entity;
+package mirana.demo.entity.cute;
+
+import mirana.demo.entity.cute.kind.Rabbit;
 
 public class Dog {
 
@@ -11,6 +13,11 @@ public class Dog {
      * 名称
      */
     String name;
+
+    /**
+     * 善良的朋友
+     */
+    Rabbit friend;
 
     public long getId() {
         return id;
@@ -26,5 +33,13 @@ public class Dog {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Rabbit getFriend() {
+        return friend;
+    }
+
+    public void setFriend(Rabbit friend) {
+        this.friend = friend;
     }
 }

@@ -1,5 +1,6 @@
 package mirana.demo.entity;
 
+import mirana.demo.entity.cute.Dog;
 import mirana.demo.enumeration.Skill;
 
 import java.util.List;

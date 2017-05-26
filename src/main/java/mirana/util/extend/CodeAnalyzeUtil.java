@@ -131,11 +131,27 @@ public class CodeAnalyzeUtil {
 
     private File getSubFile(String className, String[] paths) {
         for (String path : paths) {
-            File file = new File(path);
-            for (String fileName : file.list()) {
-                if (fileName.equals(className + ".java")) {
-                    return new File(path + "/" + fileName);
-                }
+            File result = searchFile(new File(path), className);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
+    }
+
+    private File searchFile(File file, String className) {
+        if (file == null) {
+            return null;
+        }
+        if (file.list() == null) {
+            if (file.getName().equals(className + ".java"))
+                return file;
+            return null;
+        }
+        for (String fileName : file.list()) {
+            File result = searchFile(new File(file.getPath() + "/" + fileName), className);
+            if (result != null) {
+                return result;
             }
         }
         return null;
