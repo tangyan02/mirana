@@ -5,13 +5,13 @@ public class Config {
     /**
      * 实体文件路径
      */
-    public static String[] entityPath = {
+    public static String[] entityPackagePath = {
     };
 
     /**
      * 枚举文件路径
      */
-    public static String[] enumerationPath = {
+    public static String[] enumerationPackagePath = {
     };
 
     /**

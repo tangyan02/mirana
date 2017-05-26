@@ -1,10 +1,9 @@
 {
-  "entityPath": [
-    "src/main/java/mirana/demo/entity/Cat.java"
+  "entityPackagePath": [
+    "src/main/java/mirana/demo/entity"
   ],
-  "enumerationPath": [
-    "src/main/java/mirana/demo/enumeration/Skill.java",
-    "src/main/java/mirana/demo/enumeration/Color.java"
+  "enumerationPackagePath": [
+    "src/main/java/mirana/demo/enumeration"
   ],
   "interfacePath": [
     "src/main/java/mirana/demo/interfaces/CatService.java",

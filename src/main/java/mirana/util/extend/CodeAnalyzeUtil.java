@@ -1,6 +1,7 @@
 package mirana.util.extend;
 
 import mirana.Config;
+import mirana.Data;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +23,7 @@ public class CodeAnalyzeUtil {
     public void initEntity(String className) {
         try {
             entityTypeMap.clear();
-            BufferedReader reader = new BufferedReader(new FileReader(getFile(className, Config.entityPath)));
+            BufferedReader reader = new BufferedReader(new FileReader(getSubFile(className, Config.entityPackagePath)));
             String line;
             while ((line = reader.readLine()) != null) {
                 String entityRegex = "(private)? +(?<type>\\w+|\\w+<[<>\\w ,]+>) +(?<name>\\w+);";
@@ -30,6 +31,8 @@ public class CodeAnalyzeUtil {
                 Matcher matcher = pattern.matcher(line);
                 boolean result = matcher.find();
                 if (result) {
+                    //添加类型到扩展队列
+                    Data.putAllClass(matcher.group("type"));
                     String type = matcher.group("type").replace("<", "\\<").replace(">", "\\>");
                     if (type.equals("return")) {
                         continue;
@@ -63,6 +66,8 @@ public class CodeAnalyzeUtil {
                     String methodName = matcher.group("methodName");
                     methodReturnTypeMap.put(methodName, returnType);
                     Map<String, String> paramTypes = new HashMap<>();
+                    //添加类型到扩展队列
+                    Data.putAllClass(returnType);
 
                     String params = matcher.group("params");
                     String param;
@@ -73,6 +78,8 @@ public class CodeAnalyzeUtil {
                         matcher = pattern.matcher(params);
                         result = matcher.find();
                         if (result) {
+                            //添加类型到扩展队列
+                            Data.putAllClass(matcher.group("type"));
                             String type = matcher.group("type").replace("<", "\\<").replace(">", "\\>");
                             String name = matcher.group("name");
                             paramTypes.put(name, type);
@@ -117,6 +124,18 @@ public class CodeAnalyzeUtil {
             boolean result = matcher.find();
             if (result) {
                 return new File(path);
+            }
+        }
+        return null;
+    }
+
+    private File getSubFile(String className, String[] paths) {
+        for (String path : paths) {
+            File file = new File(path);
+            for (String fileName : file.list()) {
+                if (fileName.equals(className + ".java")) {
+                    return new File(path + "/" + fileName);
+                }
             }
         }
         return null;

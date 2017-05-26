@@ -23,6 +23,11 @@ public class Cat {
      */
     private List<String> tags;
 
+    /**
+     * 朋友
+     */
+    private Dog friend;
+
     public Skill getSkill() {
         return skill;
     }
@@ -45,5 +50,13 @@ public class Cat {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    public Dog getFriend() {
+        return friend;
+    }
+
+    public void setFriend(Dog friend) {
+        this.friend = friend;
     }
 }
