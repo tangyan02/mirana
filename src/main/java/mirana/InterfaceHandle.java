@@ -22,7 +22,7 @@ public class InterfaceHandle extends Doclet {
                 String[] parameterNames = new String[methodDoc.parameters().length];
 
                 String contentParamTable = "";
-                if (methodDoc.paramTags().length > 0) {
+                if (methodDoc.parameters().length > 0) {
                     contentParamTable += DocContentUtil.getMethodTableTitle();
                     for (int i = 0; i < methodDoc.parameters().length; i++) {
                         Parameter parameter = methodDoc.parameters()[i];
