@@ -3,15 +3,9 @@ package mirana;
 public class Config {
 
     /**
-     * 实体文件路径
+     * 实体和枚举文件路径
      */
-    public static String[] entityPackagePath = {
-    };
-
-    /**
-     * 枚举文件路径
-     */
-    public static String[] enumerationPackagePath = {
+    public static String[] classPackagePath = {
     };
 
     /**

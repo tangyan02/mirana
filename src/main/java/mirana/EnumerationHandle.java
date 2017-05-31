@@ -12,6 +12,11 @@ public class EnumerationHandle extends Doclet {
     public static boolean start(RootDoc root) {
         String content = "";
         for (ClassDoc classDoc : root.classes()) {
+            if (classDoc.superclassType() != null) {
+                if (!classDoc.superclassType().simpleTypeName().equals("Enum")) {
+                    continue;
+                }
+            }
             if (Data.newClassSet.contains(classDoc.name())) {
                 Data.newClassSet.remove(classDoc.name());
                 content += DocContentUtil.getClassTitle(classDoc.name(), "");

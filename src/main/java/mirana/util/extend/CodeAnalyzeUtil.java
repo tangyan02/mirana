@@ -23,7 +23,7 @@ public class CodeAnalyzeUtil {
     public void initEntity(String className) {
         try {
             entityTypeMap.clear();
-            BufferedReader reader = new BufferedReader(new FileReader(getSubFile(className, Config.entityPackagePath)));
+            BufferedReader reader = new BufferedReader(new FileReader(getSubFile(className, Config.classPackagePath)));
             String line;
             while ((line = reader.readLine()) != null) {
                 String entityRegex = "(private)? +(?<type>\\w+|\\w+<[<>\\w ,]+>) +(?<name>\\w+);";

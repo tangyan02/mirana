@@ -10,7 +10,7 @@ mirana是一个基于JavaDoc，根据代码注释生成md格式文档的软件�
 ## 基本用法
 
 1. 执行命令 gradle clean build
-2. 在config.json文件中，将需要生成的java文件路径填写到entityPackagePath，enumerationPackagePath，interfacePath的数组中
+2. 在config.json文件中，将需要生成的java文件路径填写到classPackagePath，interfacePath的数组中
 3. 执行命令 gradle run
 4. 在build/mdFiles目录中即可找到生成的md文件
 

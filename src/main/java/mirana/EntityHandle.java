@@ -9,11 +9,18 @@ import mirana.util.extend.DocContentUtil;
 import mirana.util.extend.MdFileUtil;
 import mirana.util.extend.NoteUtil;
 
+import java.util.Arrays;
+
 public class EntityHandle extends Doclet {
 
     public static boolean start(RootDoc root) {
         String content = "";
         for (ClassDoc classDoc : root.classes()) {
+            if (classDoc.superclassType() != null) {
+                if (classDoc.superclassType().simpleTypeName().equals("Enum")) {
+                    continue;
+                }
+            }
             if (Data.newClassSet.contains(classDoc.name())) {
                 Data.newClassSet.remove(classDoc.name());
                 CodeAnalyzeUtil codeAnalyzeUtil = new CodeAnalyzeUtil();
@@ -33,4 +40,5 @@ public class EntityHandle extends Doclet {
         MdFileUtil.writeEntity(content);
         return true;
     }
+
 }

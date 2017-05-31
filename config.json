@@ -1,9 +1,6 @@
 {
-  "entityPackagePath": [
-    "src/main/java/mirana/demo/entity"
-  ],
-  "enumerationPackagePath": [
-    "src/main/java/mirana/demo/enumeration"
+  "classPackagePath": [
+    "src/main/java/mirana/demo"
   ],
   "interfacePath": [
     "src/main/java/mirana/demo/interfaces/CatService.java",

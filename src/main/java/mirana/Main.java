@@ -18,8 +18,7 @@ public class Main {
             config += arg;
         }
         Map<String, List<String>> configs = objectMapper.readValue(config, Map.class);
-        Config.entityPackagePath = convertToArray(configs.get("entityPackagePath"));
-        Config.enumerationPackagePath = convertToArray(configs.get("enumerationPackagePath"));
+        Config.classPackagePath = convertToArray(configs.get("classPackagePath"));
         Config.interfacePath = convertToArray(configs.get("interfacePath"));
         Config.serviceList = convertToArray(configs.get("serviceList"));
         Config.methodWhiteList = convertToArray(configs.get("methodWhiteList"));
@@ -34,13 +33,13 @@ public class Main {
 
         while (true) {
             String set = objectMapper.writeValueAsString(Data.newClassSet);
-            for (String path : Config.entityPackagePath) {
+            for (String path : Config.classPackagePath) {
                 File file = new File(path);
                 searchFile(file, (s) -> {
                     executeJavaDoc(EntityHandle.class, s);
                 });
             }
-            for (String path : Config.enumerationPackagePath) {
+            for (String path : Config.classPackagePath) {
                 File file = new File(path);
                 searchFile(file, (s) -> {
                     executeJavaDoc(EnumerationHandle.class, s);
@@ -58,7 +57,9 @@ public class Main {
             return;
         }
         if (file.list() == null) {
-            runnable.run(file.getPath());
+            if (file.getPath().endsWith(".java")) {
+                runnable.run(file.getPath());
+            }
             return;
         }
         if (file.list().length > 0) {
