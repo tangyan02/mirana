@@ -19,17 +19,17 @@ public class InterfaceHandle extends Doclet {
                     continue;
                 }
 
-                String[] parameterNames = new String[methodDoc.paramTags().length];
+                String[] parameterNames = new String[methodDoc.parameters().length];
 
                 String contentParamTable = "";
                 if (methodDoc.paramTags().length > 0) {
                     contentParamTable += DocContentUtil.getMethodTableTitle();
-                    for (int i = 0; i < methodDoc.paramTags().length; i++) {
+                    for (int i = 0; i < methodDoc.parameters().length; i++) {
                         Parameter parameter = methodDoc.parameters()[i];
                         parameterNames[i] = parameter.name();
-                        ParamTag paramTag = methodDoc.paramTags()[i];
+                        String paramComment = getParameterCommentByName(methodDoc.paramTags(), parameter.name());
                         String type = codeAnalyzeUtil.getMethodParamType(methodDoc.name(), parameter.name());
-                        contentParamTable += DocContentUtil.getTableRow(paramTag.parameterName(), type, paramTag.parameterComment());
+                        contentParamTable += DocContentUtil.getTableRow(parameter.name(), type, paramComment);
                     }
                 }
 
@@ -55,5 +55,14 @@ public class InterfaceHandle extends Doclet {
             }
         }
         return true;
+    }
+
+    private static String getParameterCommentByName(ParamTag[] paramTags, String paramName) {
+        for (ParamTag paramTag : paramTags) {
+            if (paramTag.name().equals(paramName)) {
+                return paramTag.parameterComment();
+            }
+        }
+        return "";
     }
 }
