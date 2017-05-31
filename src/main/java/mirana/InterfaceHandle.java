@@ -59,7 +59,7 @@ public class InterfaceHandle extends Doclet {
 
     private static String getParameterCommentByName(ParamTag[] paramTags, String paramName) {
         for (ParamTag paramTag : paramTags) {
-            if (paramTag.name().equals(paramName)) {
+            if (paramTag.parameterName().equals(paramName)) {
                 return paramTag.parameterComment();
             }
         }
