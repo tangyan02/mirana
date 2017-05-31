@@ -13,7 +13,7 @@ public class InterfaceHandle extends Doclet {
             codeAnalyzeUtil.initMethod(classDoc.name());
             String content = "";
             content += DocContentUtil.getLine();
-            content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.getRawCommentText());
+            content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.commentText());
             for (MethodDoc methodDoc : classDoc.methods(false)) {
                 if (!methodNeed(classDoc, methodDoc)) {
                     continue;
