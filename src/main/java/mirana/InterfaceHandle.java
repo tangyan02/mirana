@@ -15,7 +15,7 @@ public class InterfaceHandle extends Doclet {
             content += DocContentUtil.getLine();
             content += DocContentUtil.getClassTitle(classDoc.name(), classDoc.commentText());
             for (MethodDoc methodDoc : classDoc.methods(false)) {
-                if (!methodNeed(classDoc, methodDoc)) {
+                if (!codeAnalyzeUtil.methodNeed(classDoc.name(), methodDoc.name())) {
                     continue;
                 }
 
@@ -38,21 +38,6 @@ public class InterfaceHandle extends Doclet {
                 content += contentParamTable;
             }
             MdFileUtil.writeInterface(content, classDoc.typeName());
-        }
-        return true;
-    }
-
-    private static boolean methodNeed(ClassDoc classDoc, MethodDoc methodDoc) {
-        for (String service : Config.serviceList) {
-            if (service.equals(classDoc.name())) {
-                boolean contains = false;
-                for (String method : Config.methodWhiteList) {
-                    if (method.equals(methodDoc.name())) {
-                        contains = true;
-                    }
-                }
-                return contains;
-            }
         }
         return true;
     }

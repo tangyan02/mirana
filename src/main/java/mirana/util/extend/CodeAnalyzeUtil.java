@@ -1,5 +1,7 @@
 package mirana.util.extend;
 
+import com.sun.javadoc.ClassDoc;
+import com.sun.javadoc.MethodDoc;
 import mirana.Config;
 import mirana.Data;
 
@@ -64,29 +66,31 @@ public class CodeAnalyzeUtil {
                 if (result) {
                     String returnType = matcher.group("returnType");
                     String methodName = matcher.group("methodName");
-                    methodReturnTypeMap.put(methodName, returnType);
-                    Map<String, String> paramTypes = new HashMap<>();
-                    //添加类型到扩展队列
-                    Data.putAllClass(returnType);
+                    if (methodNeed(className, methodName)) {
+                        methodReturnTypeMap.put(methodName, returnType);
+                        Map<String, String> paramTypes = new HashMap<>();
+                        //添加类型到扩展队列
+                        Data.putAllClass(returnType);
 
-                    String params = matcher.group("params");
-                    String param;
-                    //逐步抓取单个paramType
-                    while ((param = getParam(params)) != null) {
-                        String regexParam = "(?<type>\\w+|\\w+<[<>\\w ,]+>) +(?<name>\\w+)";
-                        pattern = Pattern.compile(regexParam);
-                        matcher = pattern.matcher(params);
-                        result = matcher.find();
-                        if (result) {
-                            //添加类型到扩展队列
-                            Data.putAllClass(matcher.group("type"));
-                            String type = matcher.group("type").replace("<", "\\<").replace(">", "\\>");
-                            String name = matcher.group("name");
-                            paramTypes.put(name, type);
+                        String params = matcher.group("params");
+                        String param;
+                        //逐步抓取单个paramType
+                        while ((param = getParam(params)) != null) {
+                            String regexParam = "(?<type>\\w+|\\w+<[<>\\w ,]+>) +(?<name>\\w+)";
+                            pattern = Pattern.compile(regexParam);
+                            matcher = pattern.matcher(params);
+                            result = matcher.find();
+                            if (result) {
+                                //添加类型到扩展队列
+                                Data.putAllClass(matcher.group("type"));
+                                String type = matcher.group("type").replace("<", "\\<").replace(">", "\\>");
+                                String name = matcher.group("name");
+                                paramTypes.put(name, type);
+                            }
+                            params = params.replace(param, "");
                         }
-                        params = params.replace(param, "");
+                        methodParamTypeMap.put(methodName, paramTypes);
                     }
-                    methodParamTypeMap.put(methodName, paramTypes);
                 }
             }
         } catch (IOException e) {
@@ -114,6 +118,21 @@ public class CodeAnalyzeUtil {
             return entityTypeMap.get(name);
         }
         return "";
+    }
+
+    public static boolean methodNeed(String className, String methodName) {
+        for (String service : Config.serviceList) {
+            if (service.equals(className)) {
+                boolean contains = false;
+                for (String method : Config.methodWhiteList) {
+                    if (method.equals(methodName)) {
+                        contains = true;
+                    }
+                }
+                return contains;
+            }
+        }
+        return true;
     }
 
     private File getFile(String className, String[] paths) {
