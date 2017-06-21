@@ -4,6 +4,7 @@ import com.sun.javadoc.*;
 import mirana.util.extend.CodeAnalyzeUtil;
 import mirana.util.extend.DocContentUtil;
 import mirana.util.extend.MdFileUtil;
+import mirana.util.extend.NoteUtil;
 
 public class InterfaceHandle extends Doclet {
 
@@ -35,6 +36,12 @@ public class InterfaceHandle extends Doclet {
 
                 String returnTypeName = codeAnalyzeUtil.getMethodReturnType(methodDoc.name());
                 content += DocContentUtil.getMethodTitle(returnTypeName, methodDoc.name(), parameterNames, methodDoc.commentText());
+
+                String methodRemark = NoteUtil.getRemark(methodDoc);
+                if (!methodRemark.isEmpty()) {
+                    content += methodRemark + "\n";
+                }
+
                 content += contentParamTable;
             }
             MdFileUtil.writeInterface(content, classDoc.typeName());

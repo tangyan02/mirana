@@ -30,6 +30,14 @@ public class NoteUtil extends TagUtil {
         return remarks.get(0);
     }
 
+    public static String getRemark(MethodDoc methodDoc) {
+        List<String> remarks = getTagText(methodDoc, "remark");
+        if (remarks.isEmpty()) {
+            return "";
+        }
+        return remarks.get(0);
+    }
+
     public static String getParamType(MethodDoc methodDoc, Parameter parameter) {
         List<String> paramTypes = getTagText(methodDoc, "paramType");
         for (String paramType : paramTypes) {
